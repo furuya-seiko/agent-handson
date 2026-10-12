@@ -1,0 +1,335 @@
+/* 商品管理システムのスタイル。画面の表示切り替えとエラー強調のクラスを含む。 */
+
+body {
+    margin: 0;
+    padding: 0 0 48px;
+    font-family: "Meiryo", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333333;
+    background-color: #eef1f5;
+}
+
+/* ヘッダとメニュー */
+
+header {
+    padding: 0;
+    background-color: #2c3e50;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    margin: 0;
+    padding: 14px 32px 12px;
+    font-size: 17px;
+    font-weight: normal;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+}
+
+nav {
+    padding: 0 32px;
+    background-color: #34495e;
+}
+
+nav button {
+    margin: 0;
+    padding: 10px 20px;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-size: 14px;
+    color: #d3dce6;
+    background-color: transparent;
+}
+
+nav button:hover {
+    color: #ffffff;
+    background-color: #3f5a76;
+}
+
+nav button:active {
+    border-bottom-color: #5b9bd5;
+}
+
+/* 本文の枠 */
+
+main {
+    max-width: 960px;
+    margin: 24px auto 0;
+    padding: 0 24px;
+}
+
+main section {
+    padding: 20px 24px 24px;
+    border: 1px solid #d5dae0;
+    border-radius: 3px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    margin: 0 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #2c3e50;
+    font-size: 16px;
+}
+
+h3 {
+    margin: 24px 0 10px;
+    padding-left: 8px;
+    border-left: 4px solid #5b9bd5;
+    font-size: 14px;
+}
+
+/* 入力欄とボタン */
+
+input {
+    padding: 5px 8px;
+    border: 1px solid #b8c0c8;
+    border-radius: 2px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #333333;
+    background-color: #ffffff;
+}
+
+input:focus {
+    border-color: #5b9bd5;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(91, 155, 213, 0.25);
+}
+
+select {
+    padding: 4px 6px;
+    border: 1px solid #b8c0c8;
+    border-radius: 2px;
+    font-size: 14px;
+    font-family: inherit;
+    background-color: #ffffff;
+}
+
+button {
+    padding: 6px 16px;
+    border: 1px solid #b8c0c8;
+    border-radius: 2px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #333333;
+    background-color: #f6f8fa;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e9edf1;
+}
+
+button:disabled {
+    color: #a0a8b0;
+    background-color: #f2f3f5;
+    border-color: #d5dae0;
+    cursor: default;
+}
+
+/* 主要な操作のボタンを色で区別する */
+
+#button-search,
+#button-register-product,
+#button-update-product,
+#button-register-sales,
+#button-csv-all,
+#button-csv-month {
+    border-color: #2f6fad;
+    color: #ffffff;
+    background-color: #3d7fc1;
+}
+
+#button-search:hover,
+#button-register-product:hover,
+#button-update-product:hover,
+#button-register-sales:hover,
+#button-csv-all:hover,
+#button-csv-month:hover {
+    background-color: #336ca6;
+}
+
+#button-search:disabled,
+#button-register-product:disabled,
+#button-update-product:disabled,
+#button-register-sales:disabled,
+#button-csv-all:disabled,
+#button-csv-month:disabled {
+    color: #a0a8b0;
+    background-color: #f2f3f5;
+    border-color: #d5dae0;
+}
+
+#button-delete-product {
+    border-color: #a94442;
+    color: #a94442;
+    background-color: #ffffff;
+}
+
+#button-delete-product:hover {
+    background-color: #fbeceb;
+}
+
+#button-delete-product:disabled {
+    color: #a0a8b0;
+    background-color: #f2f3f5;
+    border-color: #d5dae0;
+}
+
+/* 入力欄の幅 */
+
+#search-product-name,
+#register-product-name,
+#edit-product-name {
+    width: 300px;
+}
+
+#register-price,
+#edit-price,
+#csv-year-month {
+    width: 130px;
+}
+
+/* 検索条件・フォーム行 */
+
+.search-condition {
+    margin-bottom: 18px;
+    padding: 14px 16px;
+    border: 1px solid #e0e4e9;
+    border-radius: 2px;
+    background-color: #f8f9fb;
+}
+
+.search-condition label {
+    display: inline-block;
+    width: 70px;
+}
+
+.search-condition button {
+    margin-left: 6px;
+}
+
+.form-row {
+    margin-bottom: 12px;
+}
+
+.form-row label,
+.form-label {
+    display: inline-block;
+    width: 100px;
+    color: #556170;
+}
+
+.button-row {
+    margin-top: 18px;
+}
+
+.button-row button {
+    margin-right: 8px;
+}
+
+.note {
+    margin-left: 10px;
+    font-size: 13px;
+    color: #7a838d;
+}
+
+#edit-price-note {
+    margin-left: 10px;
+    font-size: 13px;
+    color: #a94442;
+}
+
+#edit-price-display,
+#edit-product-code,
+#edit-register-datetime,
+#edit-update-datetime,
+#edit-delete-datetime,
+#sales-date {
+    font-weight: bold;
+}
+
+/* 一覧 */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 4px;
+    border: 1px solid #d5dae0;
+}
+
+th,
+td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #e4e8ec;
+    text-align: left;
+}
+
+th {
+    border-bottom: 2px solid #d5dae0;
+    font-weight: normal;
+    color: #556170;
+    background-color: #f2f4f7;
+    white-space: nowrap;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #fafbfc;
+}
+
+tbody tr:hover {
+    background-color: #eef4fa;
+}
+
+th.number,
+td.number {
+    text-align: right;
+}
+
+td button {
+    padding: 3px 12px;
+    font-size: 13px;
+}
+
+/* メッセージ */
+
+.message-list {
+    margin: 0 0 18px;
+    padding: 10px 16px 10px 32px;
+    border: 1px solid #d5dae0;
+    border-left: 4px solid #7a838d;
+    border-radius: 2px;
+    background-color: #f8f9fb;
+    list-style-type: disc;
+}
+
+.message {
+    margin: 2px 0;
+}
+
+.message--info {
+    color: #1e6b3a;
+}
+
+.message--error {
+    color: #a94442;
+    font-weight: bold;
+}
+
+/* 状態を切り替えるクラス */
+
+.is-error {
+    border-color: #a94442;
+    background-color: #fdf3f2;
+}
+
+.is-error:focus {
+    box-shadow: 0 0 0 2px rgba(169, 68, 66, 0.25);
+}
+
+.is-hidden {
+    display: none;
+}

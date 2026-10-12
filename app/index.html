@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>商品管理システム</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>商品管理システム</h1>
+        <nav>
+            <button type="button" id="menu-product-search">商品検索</button>
+            <button type="button" id="menu-product-register">商品登録</button>
+            <button type="button" id="menu-sales-register">売上登録</button>
+            <button type="button" id="menu-csv-download">CSVダウンロード</button>
+        </nav>
+    </header>
+    <main>
+        <section id="screen-product-search">
+            <h2>商品検索</h2>
+            <div id="message-area-product-search"></div>
+            <div class="search-condition">
+                <label for="search-product-name">商品名</label>
+                <input type="text" id="search-product-name">
+                <button type="button" id="button-search">検索</button>
+                <button type="button" id="button-go-register">新規登録</button>
+            </div>
+            <table id="product-search-table">
+                <thead>
+                    <tr>
+                        <th>商品コード</th>
+                        <th>商品名</th>
+                        <th class="number">単価</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="product-search-tbody"></tbody>
+            </table>
+        </section>
+
+        <section id="screen-product-register" class="is-hidden">
+            <h2>商品登録</h2>
+            <div id="message-area-product-register"></div>
+            <div class="form-row">
+                <label for="register-product-name">商品名</label>
+                <input type="text" id="register-product-name">
+            </div>
+            <div class="form-row">
+                <label for="register-price">単価</label>
+                <input type="text" inputmode="numeric" id="register-price">
+            </div>
+            <div class="button-row">
+                <button type="button" id="button-register-product">登録</button>
+                <button type="button" id="button-register-back">戻る</button>
+            </div>
+        </section>
+
+        <section id="screen-product-edit" class="is-hidden">
+            <h2>商品変更・削除</h2>
+            <div id="message-area-product-edit"></div>
+            <div class="form-row">
+                <span class="form-label">商品コード</span>
+                <span id="edit-product-code"></span>
+            </div>
+            <div class="form-row">
+                <label for="edit-product-name">商品名</label>
+                <input type="text" id="edit-product-name">
+            </div>
+            <div class="form-row">
+                <label for="edit-price">単価</label>
+                <input type="text" inputmode="numeric" id="edit-price">
+                <span id="edit-price-display" class="is-hidden"></span>
+                <span id="edit-price-note" class="is-hidden">※売上が登録されているため、単価の変更と削除はできません。</span>
+            </div>
+            <div class="form-row">
+                <span class="form-label">登録日時</span>
+                <span id="edit-register-datetime"></span>
+            </div>
+            <div class="form-row">
+                <span class="form-label">更新日時</span>
+                <span id="edit-update-datetime"></span>
+            </div>
+            <div class="form-row">
+                <span class="form-label">削除日時</span>
+                <span id="edit-delete-datetime"></span>
+            </div>
+            <div class="button-row">
+                <button type="button" id="button-update-product">変更</button>
+                <button type="button" id="button-delete-product">削除</button>
+                <button type="button" id="button-edit-back">戻る</button>
+            </div>
+        </section>
+
+        <section id="screen-sales-register" class="is-hidden">
+            <h2>日ごとの売上一括登録</h2>
+            <div id="message-area-sales-register"></div>
+            <div class="form-row">
+                <span class="form-label">売上日</span>
+                <span id="sales-date"></span>
+            </div>
+            <table id="sales-detail-table" class="is-hidden">
+                <thead>
+                    <tr>
+                        <th>行</th>
+                        <th>商品名</th>
+                        <th>数量</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="sales-detail-tbody"></tbody>
+            </table>
+            <div class="button-row">
+                <button type="button" id="button-add-row">追加</button>
+            </div>
+            <div class="button-row">
+                <button type="button" id="button-register-sales">登録</button>
+            </div>
+        </section>
+
+        <section id="screen-csv-download" class="is-hidden">
+            <h2>集計データCSVダウンロード</h2>
+            <div id="message-area-csv-download"></div>
+            <h3>商品別売上集計（売上のない商品も含む・全期間）</h3>
+            <div class="button-row">
+                <button type="button" id="button-csv-all">商品別売上集計</button>
+            </div>
+            <h3>指定年月商品別売上集計（指定年月に売上のある商品のみ）</h3>
+            <div class="form-row">
+                <label for="csv-year-month">年月</label>
+                <input type="text" id="csv-year-month">
+                <span class="note">（YYYY/MM 形式）</span>
+            </div>
+            <div class="button-row">
+                <button type="button" id="button-csv-month">指定年月商品別売上集計</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/logic/constants.js"></script>
+    <script src="js/logic/format.js"></script>
+    <script src="js/logic/messages.js"></script>
+    <script src="js/logic/result.js"></script>
+    <script src="js/logic/validation.js"></script>
+    <script src="js/logic/store-schema.js"></script>
+    <script src="js/logic/seed-data.js"></script>
+    <script src="js/logic/sales-logic.js"></script>
+    <script src="js/logic/product-logic.js"></script>
+    <script src="js/logic/summary-logic.js"></script>
+    <script src="js/view/screen-state.js"></script>
+    <script src="js/view/render.js"></script>
+    <script src="js/app/clock.js"></script>
+    <script src="js/app/storage.js"></script>
+    <script src="js/app/main.js"></script>
+</body>
+</html>
